@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1> This is Home Page ..</h1>
+    <h2>
+        Author: {{author}} <br>
+        Age: {{age}}
+    </h2>
+{% comment %} Template Filtering {% endcomment %}
+
+    {% comment %} Conditional Statement {% endcomment %}
+    {%if age > 20%}
+    <h4> You are adult </h4>
+    {%elif age >= 10 %}
+    <h4>You will no get driving license</h4>
+    {%else%}
+    <h4>You are a child..</h4>
+    {% endif %}
+
+    {% comment %} For Loop {% endcomment %}
+    {% for i in courses %}
+    <h3>{{i.id}}: {{i.name}}</h3>
+    {% endfor %}
+
+    {% comment %} Join Function {% endcomment %}
+    {{lst}}
+    <h1>{{ lst | join:" - " }}</h1>
+    <h1>
+        {{ birthday | date:"D d M Y" }}
+    </h1>
+</body>
+</html>
