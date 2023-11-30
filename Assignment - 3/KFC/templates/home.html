@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+<!--Title-->
+{% block title %}KFC | Home{% endblock title %}
+{% block favicon %}{% static "logo.png" %}{% endblock favicon %}
+<!--CSS-->
+{% block css_link %}
+<link rel="stylesheet" href="{% static "home.css" %}">
+{% endblock css_link %}
+<!--Content-->
+{% block content %}
+<div class="main-content">
+    <div class="img-container">
+        <img class="home-bg-img img-fluid" src="{% static "background-img.jpg" %}" alt="KFC-background-img">
+    </div>
+    <div class="overlay-text">
+        <h1 class="text-title">
+            <span class = "k">K</span>
+            <span class = "f">F</span>
+            <span class = "c">C</span>
+        </h1>
+        <strong class="d-block">Happy meal with friends & family...</strong>
+        <a href="{% url "show" %}" class="btn btn-warning mt-3 fs-3">Show Menu</a>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}KFC | Menu{% endblock title %}
+{% block favicon %}{% static "logo.png" %}{% endblock favicon %}
+
+<!--CSS Link-->
+{% block css_link %}
+<link rel="stylesheet" href="{% static "show_item.css" %}">
+{% endblock css_link %}
+
+<!--Main Content-->
+{% block content %}
+<div class=" container">
+    <div class="row main-content">
+        {% for i in categories %}
+        <div class="col-md-4 mb-5">
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.strCategoryThumb}}" class="card-img-top" alt="{{i.strCategory}}">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-body-secondary">ID: {{i.idCategory}}</h6>
+                    <h5 class="card-title">{{i.strCategory}}</h5>
+                    <p class="card-text">{{ i.strCategoryDescription|truncatewords:10 }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
