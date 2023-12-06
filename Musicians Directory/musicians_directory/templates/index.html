@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock title %}
+{% block home %}active{% endblock home %}
+{% block content %}
+<div class="w-75 m-auto">
+    <h3 class="my-5">Music Album Details:</h3>
+    <table class="table table-bordered border-black">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col">ID</th>
+      <th class="text-center" scope="col">Musician Name</th>
+      <th class="text-center" scope="col">Email</th>
+      <th class="text-center" scope="col">Album Rating</th>
+      <th class="text-center" scope="col">Instrument Type</th>
+      <th class="text-center" scope="col">Album Name</th>
+      <th class="text-center" scope="col">Release Date</th>
+      <th class="text-center" scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for album in data %}
+    <tr>
+      <th class="text-center" scope="row">{{ forloop.counter }}</th>
+      <td>
+        <a href="{% url "edit_musician" album.musician.id %}" class="text-decoration-none">{{album.musician.frist_name}} {{album.musician.last_name}}</a>
+      </td>
+      <td>{{album.musician.email}}</td>
+      <td class="text-center">{{album.rating}}</td>
+      <td>{{album.musician.instrument_type}}</td>
+      <td>{{album.name}}</td>
+      <td>{{album.release_date}}</td>
+      <td class="text-center">
+        <a href="{% url "edit_album" album.id %}" class="btn btn-warning">Edit</a>
+        <a href="{% url "delete_musician" album.musician.id %}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}
