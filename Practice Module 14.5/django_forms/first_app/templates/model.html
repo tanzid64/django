@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Model{% endblock title %}
+
+{% block content %}
+<!--Main Content Start -->
+<div class="w-75 m-auto">
+    <h3 class="my-5">Model Data:</h3>
+    <table class="table table-bordered border-black">
+  <thead>
+    <tr>
+      <th class="text-center" scope="col">ID</th>
+      <th class="text-center" scope="col">Name</th>
+      <th class="text-center" scope="col">Email</th>
+      <th class="text-center" scope="col">Address</th>
+      <th class="text-center" scope="col">Class</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in data %}
+    <tr>
+      <th class="text-center" scope="row">{{ student.id }}</th>
+      <td>{{student.name}}</td>
+      <td >{{student.email}}</td>
+      <td>{{student.address}}</td>
+      <td>{{student.s_class}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock content %}
