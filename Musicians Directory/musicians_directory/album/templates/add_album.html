@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}Add Album{% endblock title %}
+{% block title %}{{type}} Album{% endblock title %}
 {% block addAlbum %}active{% endblock addAlbum %}
 {% block content %}
 <form action="" method="post" class="w-50 m-auto">
-    <h3 class="my-5">Add Album page</h3>
+    <h3 class="my-5">{{type}} Album page</h3>
     {% csrf_token %}
     {{form|crispy}}
     <button class="btn btn-warning">Submit</button>

@@ -14,7 +14,6 @@
       <th class="text-center" scope="col">Instrument Type</th>
       <th class="text-center" scope="col">Album Name</th>
       <th class="text-center" scope="col">Release Date</th>
-      <th class="text-center" scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -22,17 +21,13 @@
     <tr>
       <th class="text-center" scope="row">{{ forloop.counter }}</th>
       <td>
-        <a href="{% url "edit_musician" album.musician.id %}" class="text-decoration-none">{{album.musician.frist_name}} {{album.musician.last_name}}</a>
+        {{album.musician.frist_name}} {{album.musician.last_name}}
       </td>
       <td>{{album.musician.email}}</td>
       <td class="text-center">{{album.rating}}</td>
       <td>{{album.musician.instrument_type}}</td>
       <td>{{album.name}}</td>
       <td>{{album.release_date}}</td>
-      <td class="text-center">
-        <a href="{% url "edit_album" album.id %}" class="btn btn-warning">Edit</a>
-        <a href="{% url "delete_musician" album.musician.id %}" class="btn btn-danger">Delete</a>
-      </td>
     </tr>
     {% endfor %}
   </tbody>

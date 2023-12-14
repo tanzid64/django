@@ -1,28 +1,49 @@
 from django.shortcuts import render, redirect
 from . import forms, models
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 # Create your views here.
-def add_musician(request):
-    if request.method == 'POST':
-        musician_form = forms.AddMusicianForm(request.POST)
-        if musician_form.is_valid():
-            musician_form.save()
-            return redirect('add_musician')
+# Add Musician
+@method_decorator(login_required, name='dispatch')
+class AddMusicianView(CreateView):
+    template_name = 'add_musician.html'
+    form_class = forms.AddMusicianForm
+    success_url = reverse_lazy('add_musician')
 
-    musician_form = forms.AddMusicianForm()
-    return render(request, 'add_musician.html', {'form': musician_form})
+    def form_valid(self, form):
+        messages.success(self.request, 'Musician Added Successfully')
+        return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["type"] = 'Add'
+        return context
+    
+    
+# Edit Musician
+@method_decorator(login_required, name='dispatch')
+class EditMusicianView(UpdateView):
+    model = models.Musician
+    form = forms.AddMusicianForm
+    template_name = 'add_musician.html'
+    success_url = reverse_lazy('homepage')
+    fields = '__all__'
 
-def edit_musician(request, id):
-    musician = models.Musician.objects.get(pk = id)
-    musician_form = forms.AddMusicianForm(instance=musician)
-    if request.method == 'POST':
-        musician_form = forms.AddMusicianForm(request.POST, instance=musician)
-        if musician_form.is_valid():
-            musician_form.save()
-            return redirect('homepage')
-        
-    return render(request, 'edit_musician.html', {'form': musician_form})
-
-def delete_musician(request, id):
-    musician = models.Musician.objects.get(pk = id)
-    musician.delete()
-    return redirect('homepage')
+    def form_valid(self, form):
+        messages.success(self.request, 'Musician Profile Updated Successfully.')
+        return super().form_valid(form)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["type"] = 'Edit'
+        return context
+    
+# Delete Musician
+@method_decorator(login_required, name='dispatch')
+class DeleteMusicianView(DeleteView):
+    model = models.Musician
+    template_name = 'delete_musician.html'
+    success_url = reverse_lazy('profile')

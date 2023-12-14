@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ieih7o@h-53c=nj!v$857#&kv2ozjiwn&vq%ofh$4cqv=s85a7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'musician',
     'crispy_forms',
     'crispy_bootstrap5',
+    'user',
 ]
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
-
+LOGIN_URL = '/user/login/'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

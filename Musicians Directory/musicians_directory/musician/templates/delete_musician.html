@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-{% block title %}Edit Album{% endblock title %}
+{% block title %}Delete Musician{% endblock title %}
 {% block content %}
 <form action="" method="post" class="w-50 m-auto">
-    <h3 class="my-5">Edit Album page</h3>
+    <h3 class="my-5">Are You Sure?</h3>
     {% csrf_token %}
     {{form|crispy}}
-    <button class="btn btn-warning">Submit</button>
+    <button class="btn btn-danger">Delete</button>
 </form>
 {% endblock content %}
