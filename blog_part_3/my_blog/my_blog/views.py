@@ -9,3 +9,4 @@ def home(request, category_slug = None):
     categories = Category.objects.all()
 
     return render(request, 'home.html', {'data': data, 'category': categories})
+
