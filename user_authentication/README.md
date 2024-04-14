@@ -33,7 +33,6 @@ Then install the dependencies:
 ```bash
   pip install -r requirements.txt
 ```
-Create a file name .env in project folder. Use Posgresql as database, and gmail account as email account. Setup your .env as per the requirements.
 
 Apply migrations:
 
