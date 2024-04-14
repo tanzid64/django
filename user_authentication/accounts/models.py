@@ -23,7 +23,7 @@ class CustomUser(TimeStampMixin, AbstractUser):
   email = models.EmailField(unique=True)
   #... add more as per your need
 
-  objects = CustomUserManager
+  objects = CustomUserManager()
   USERNAME_FIELD = 'email' # It declears that we will use email while login instad of username
   REQUIRED_FIELDS = ('username',) # An username must required while registration
 
