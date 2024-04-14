@@ -1,0 +1,8 @@
+Objectives:
+  - Making custom user model and authentication system with api.
+
+Reasons:
+  - Built in user model is not recommanded for production level application.
+
+Resources that used to complete this project:
+  - Django auth official documentation: https://docs.djangoproject.com/en/5.0/ref/contrib/auth/
