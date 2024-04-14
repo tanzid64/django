@@ -3,7 +3,7 @@ from accounts.models import CustomUser as User
 from accounts.permissions import IsOwnerOrReadOnly
 from django.contrib.auth import authenticate
 from accounts.serializers import UserRegistrationSerializer, UserDetailsSerializer, UserSerializer, UserLoginSerializer
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
@@ -30,11 +30,9 @@ class UserLoginView(APIView):
             print(user)
             if user:
                 token, _ = Token.objects.get_or_create(user=user)
-                print(token)
-                print(_)
-                return Response({'token' : token.key, 'username' : user.username})
+                return Response({'token' : token.key, 'username' : user.username}, status=status.HTTP_200_OK)
             else:
-                return Response({'error' : "Invalid Credential"})
+                return Response({'error' : "Invalid Credential"}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors)
     
     # {"email": "tanzid@inbox.ru", "password":"123"}
