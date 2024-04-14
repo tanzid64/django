@@ -6,3 +6,6 @@ Reasons:
 
 Resources that used to complete this project:
   - Django auth official documentation: https://docs.djangoproject.com/en/5.0/ref/contrib/auth/
+
+API Documentation made by me:
+  - https://documenter.getpostman.com/view/32603042/2sA3Bj7DfR

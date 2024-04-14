@@ -20,7 +20,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
     
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['message'] = 'Account registration successfull. Please confirm your email to login.'
+        representation['message'] = 'Account registration successfull.'
         return representation
 
 class UserSerializer(serializers.ModelSerializer):

@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from accounts.models import CustomUser as User
+from accounts.permissions import IsOwnerOrReadOnly
 from django.contrib.auth import authenticate
 from accounts.serializers import UserRegistrationSerializer, UserDetailsSerializer, UserSerializer, UserLoginSerializer
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 class UserViewSets(viewsets.ModelViewSet):
+  permission_classes = [IsOwnerOrReadOnly]
   queryset = User.objects.all()
   def get_serializer_class(self):
     if self.request.method == "GET":
