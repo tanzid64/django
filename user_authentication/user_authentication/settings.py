@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Rest Framework
     'rest_framework',
+    'rest_framework.authtoken',
     # Custom apps
     'accounts',
 ]
@@ -115,3 +116,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Use custom user model as default user model
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Token Authentication 
+    ],
+}
