@@ -1,0 +1,5 @@
+asgiref
+Django
+djangorestframework
+sqlparse
+typing_extensions
