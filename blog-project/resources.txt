@@ -1,0 +1,9 @@
+- For class based view implementations = https://ccbv.co.uk/
+- Tailwind Setup = https://django-tailwind.readthedocs.io/en/latest/installation.html
+
+
+
+
+***Form Error Type ***
+1. Non Fields Error 
+2. Hidden Fields Error 
