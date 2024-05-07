@@ -11,3 +11,4 @@ class User(TimeStampMixin, AbstractUser):
   objects = UserManager()
   USERNAME_FIELD = 'email'
   REQUIRED_FIELDS = ['username']
+

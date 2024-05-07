@@ -1,6 +1,6 @@
 - For class based view implementations = https://ccbv.co.uk/
 - Tailwind Setup = https://django-tailwind.readthedocs.io/en/latest/installation.html
-
+- Difference between AbstractUser and AbstractBaseUser = https://stackoverflow.com/questions/21514354/abstractuser-vs-abstractbaseuser-in-django#:~:text=AbstractBaseUser%20only%20contains%20the%20authentication,supply%20them%20when%20you%20subclass.&text=The%20AbstractUser%20is%20basically%20just,re%20probably%20already%20used%20to.
 - Limit Access to Logged in user: https://docs.djangoproject.com/en/5.0/topics/auth/default/
 # 3 ways:
  1. Check if request.user.is_authenticated
