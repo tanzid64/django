@@ -16,11 +16,12 @@
 <!--Title-->
 <div class="p-4 mb-4 text-white rounded-lg text-4xl font-extrabold bg-slate-700">
   <i class="fa-solid fa-user"></i>
-            Open User Account
+    Login
 </div>
-<!--Registration Form-->
+
+<!--Login Form-->
 <div class="w-full border rounded-lg">
-  <form method="post" action="{% url 'register' %}" class="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <form method="post" class="shadow-md rounded px-8 pt-6 pb-8 mb-4" novalidate>
     {% csrf_token %}
     <!--Hidden Field Error-->
     {% for hidden_field in form.hidden_fields %}
@@ -33,18 +34,10 @@
         </label> 
         {{ form.username }}
         <!--Field Error for username field-->
-         {% if form.username.errors %} {% for error in form.username.errors %}
+        {% if form.username.errors %} {% for error in form.username.errors %}
         <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
           {% endfor %} {% endif %}
       </div>
-      <!--Email-->
-        <div class="w-full md:w-1/2 px-3 my-6">
-            <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2" for="{{ form.email.id_for_label }}">
-                {{ form.email.label }}
-            </label> {{ form.email }} {% if form.email.errors %} {% for error in form.email.errors %}
-            <p class="text-red-600 text-sm italic pb-2">{{ error }}</p>
-            {% endfor %} {% endif %}
-        </div>
         <!--Password-->
         <div class="w-full md:w-1/2 px-3 my-6">
             <label class="block uppercase tracking-wide text-black text-xs font-bold mb-2" for="{{ form.password.id_for_label }}">
@@ -54,7 +47,7 @@
             {% endfor %} {% endif %}
         </div>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-          Register
+          Login
         </button>
   </form>
 </div>

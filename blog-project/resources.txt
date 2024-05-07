@@ -1,6 +1,11 @@
 - For class based view implementations = https://ccbv.co.uk/
 - Tailwind Setup = https://django-tailwind.readthedocs.io/en/latest/installation.html
 
+- Limit Access to Logged in user: https://docs.djangoproject.com/en/5.0/topics/auth/default/
+# 3 ways:
+ 1. Check if request.user.is_authenticated
+ 2. using logging required decoretor (For Func based view)
+ 3. Using LoginRequiredMixin (For class based view)
 
 
 
