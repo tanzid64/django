@@ -1,0 +1,29 @@
+{% extends "_base.html" %}
+{% block content %}
+<!--Non Fields Errors-->
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<div class="bg-red-400 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert"">
+  <p class="font-bold">
+    Error!
+  </p>
+  <p class="block sm:inline">
+    {{ error }}
+  </p>
+</div>
+{% endfor %}
+{% endif %}
+<!--Title-->
+<div class="p-4 mb-4 text-white rounded-lg text-4xl font-extrabold bg-slate-700">
+  <i class="fa-solid fa-user"></i>
+        Delete Post
+</div>
+<!--Registration Form-->
+<div class="w-full border rounded-lg p-10">
+    <p>Are you sure you want to delete this post?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="py-1.5 px-3 border border-red-600 bg-red-600 text-white rounded-md" type="submit">Delete</button>
+    </form>
+</div>
+{% endblock content %}

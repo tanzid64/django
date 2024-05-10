@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+{% block content %}
+<!--Non Fields Errors-->
+{% if form.non_field_errors %}
+{% for error in form.non_field_errors %}
+<div class="bg-red-400 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert"">
+  <p class="font-bold">
+    Error!
+  </p>
+  <p class="block sm:inline">
+    {{ error }}
+  </p>
+</div>
+{% endfor %}
+{% endif %}
+<!--Title-->
+<div class="p-4 mb-4 text-white rounded-lg text-4xl font-extrabold bg-slate-700">
+  <i class="fa-solid fa-user"></i>
+    {{post.title}}
+</div>
+
+<div class="w-full border rounded-lg">
+  <p class="p-5 text-justify leading-1">
+    {{post.content}}
+  </p>
+</div>
+{% endblock content %}

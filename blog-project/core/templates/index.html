@@ -1,5 +1,32 @@
 {% extends "_base.html" %}
 
 {% block content %}
-  <h1 class="text-3xl text-green-800">Tanzid
+
+<div class="flex flex-wrap gap-5 items-center justify-center">
+{% for post in posts %}
+  <div href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      {{post.title}}
+    </h5>
+    <p class="dark:text-white text-gray-400 text-sm">
+      Author: {{post.author.username}} | Created_at: {{post.created_at}}
+    </p>
+    <br>
+    <p class="font-normal text-gray-700 dark:text-gray-400">
+      {{ post.content|truncatewords:10 }}
+    </p>
+    <a href="{% url 'detail-post' post.slug %}" class="inline-block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 my-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Read More</a>
+    {% if post.author == request.user %}
+    <a href="{% url 'update-post' post.slug %}" class="inline-block text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 my-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">
+      update 
+    </a>
+    <a href="{% url 'delete-post' post.slug %}" class="inline-block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 my-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
+      Delete 
+    </a>
+    {% endif %}
+</div>
+{% endfor %}
+</div>
+
 {% endblock content %}

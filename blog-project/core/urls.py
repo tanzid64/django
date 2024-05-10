@@ -1,7 +1,7 @@
 from django.urls import path
-from core.views import index, protected
+from core.views import HomeView, protected
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', HomeView.as_view(), name='index'),
     path('protected/', protected, name='protected'),
 ]
