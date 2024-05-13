@@ -22,7 +22,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'tailwind',
     'theme',
-    'django_browser_reload',
+    # 'django_browser_reload',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 

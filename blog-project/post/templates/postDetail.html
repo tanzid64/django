@@ -20,8 +20,40 @@
 </div>
 
 <div class="w-full border rounded-lg">
+  
   <p class="p-5 text-justify leading-1">
     {{post.content}}
   </p>
 </div>
+<div class="mt-5">
+  <form method='post'>
+    {% csrf_token %}
+    
+<label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Add Comment</label>
+<textarea name="content" id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your comments here..."></textarea>
+
+    <button class="my-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Post
+    </button>
+  </form>
+  {% for comment in comments %}
+  <div class="w-full border rounded-lg p-5 my-2">
+    <div class="flex items-end gap-5 justify-between">
+      <div class="text-blue-500">
+      @{{comment.user.username}}
+    </div>
+    <div class="text-xs text-gray-500">
+      {{comment.created_at}}
+    </div>
+    </div>
+  <p class=" text-justify leading-1">
+    {{comment.content}}
+  </p>
+</div>
+  {% endfor %}
+  <!--Comment Form-->
+  
+</div>
+ 
+
 {% endblock content %}

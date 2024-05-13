@@ -16,3 +16,8 @@ class Post(TimeStampMixin):
     if not self.slug:
       self.slug = slugify(self.title)
     super().save(*args, **kwargs)
+
+class Comment(TimeStampMixin):
+  user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+  post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+  content = models.TextField()
